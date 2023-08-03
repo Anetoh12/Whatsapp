@@ -21,7 +21,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text('WhatsApp'),
@@ -50,17 +50,30 @@ class ChatScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: CircleAvatar(
-                child: Icon(Icons.person),
-              ),
-              title: Text('Rapheal'),
-              subtitle: Text('hello Buchi'),
-            );
-          },
+        body: TabBarView(
+          children: [
+            Container(
+              color: Colors.green,
+            ),
+            ListView.builder(
+              itemCount: 1,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    child: Icon(Icons.person),
+                  ),
+                  title: Text('Rapheal'),
+                  subtitle: Text('hello Buchi'),
+                );
+              },
+            ),
+            Container(
+              color: Colors.red,
+            ),
+            Container(
+              color: Colors.blue,
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
